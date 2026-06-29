@@ -60,6 +60,9 @@ function updateStatus() {
 }
 
 function destroyInstance() {
+  if (instance && typeof instance.destroy === 'function') {
+    instance.destroy();
+  }
   instance = null;
 }
 
