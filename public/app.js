@@ -117,4 +117,23 @@ document.querySelectorAll('[data-method]').forEach((button) => {
   button.addEventListener('click', () => callMethod(button.dataset.method));
 });
 
+const wrapperFrame = document.getElementById('wrapper-frame');
+const frameWidthInput = document.getElementById('frame-width');
+const frameHeightInput = document.getElementById('frame-height');
+
+function syncFrameSizeInputs() {
+  frameWidthInput.value = Math.round(wrapperFrame.clientWidth);
+  frameHeightInput.value = Math.round(wrapperFrame.clientHeight);
+}
+
+function applyFrameSize() {
+  wrapperFrame.style.width = `${frameWidthInput.value}px`;
+  wrapperFrame.style.height = `${frameHeightInput.value}px`;
+  log(`Frame set to ${frameWidthInput.value}×${frameHeightInput.value}px`);
+}
+
+document.getElementById('apply-frame-size').addEventListener('click', applyFrameSize);
+wrapperFrame.addEventListener('mouseup', syncFrameSizeInputs);
+
+syncFrameSizeInputs();
 createInstance();

@@ -102,7 +102,10 @@
 
       <main class="stage">
         <div class="wrapper-tools">
-          <span>Drag the frame corner to resize the wrapper, then click <strong>resize</strong>.</span>
+          <span>Resize the dashed frame (drag the bottom-right corner), or set size manually, then click <strong>resize</strong>.</span>
+          <label>width <input type="number" id="frame-width" min="280" step="10" /></label>
+          <label>height <input type="number" id="frame-height" min="200" step="10" /></label>
+          <button type="button" id="apply-frame-size">Apply frame size</button>
         </div>
         <div class="wrapper-frame" id="wrapper-frame">
           <div id="wrapper">
