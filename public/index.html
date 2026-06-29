@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dom-pan-zoom tester</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="panel">
+        <h1>dom-pan-zoom tester</h1>
+        <p>Library user playground — edit options, Apply, then interact.</p>
+
+        <form id="options-form">
+          <fieldset>
+            <legend>Layout</legend>
+            <label>
+              bounds
+              <select name="bounds">
+                <option value="contain">contain</option>
+                <option value="cover">cover</option>
+                <option value="false">false</option>
+              </select>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="center" checked />
+              center
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Zoom limits</legend>
+            <label>minZoom <input type="number" name="minZoom" step="0.01" value="0.1" /></label>
+            <label>maxZoom <input type="number" name="maxZoom" step="0.1" value="10" /></label>
+            <label>
+              initialZoom
+              <input type="text" name="initialZoom" value="contain" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Interaction</legend>
+            <label class="checkbox">
+              <input type="checkbox" name="panEnabled" checked />
+              panEnabled
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="zoomEnabled" checked />
+              zoomEnabled
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="mouseWheelRequiresKey" />
+              mouseWheelRequiresKey
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="dblClickZoomEnabled" />
+              dblClickZoomEnabled
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Steps &amp; speed</legend>
+            <label>panStep <input type="number" name="panStep" value="10" /></label>
+            <label>zoomStep <input type="number" name="zoomStep" value="50" /></label>
+            <label>zoomSpeedWheel <input type="number" name="zoomSpeedWheel" step="0.1" value="1" /></label>
+            <label>zoomSpeedPinch <input type="number" name="zoomSpeedPinch" step="0.1" value="4" /></label>
+            <label>transitionSpeed <input type="number" name="transitionSpeed" value="400" /></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Initial pan (%)</legend>
+            <label>initialPanX <input type="number" name="initialPanX" value="0" /></label>
+            <label>initialPanY <input type="number" name="initialPanY" value="0" /></label>
+          </fieldset>
+        </form>
+
+        <div class="actions">
+          <button type="button" class="primary" id="apply">Apply options</button>
+          <button type="button" id="reset-form">Reset form</button>
+        </div>
+
+        <fieldset>
+          <legend>API methods</legend>
+          <div class="actions">
+            <button type="button" data-method="zoomIn">zoomIn</button>
+            <button type="button" data-method="zoomOut">zoomOut</button>
+            <button type="button" data-method="reset">reset</button>
+            <button type="button" data-method="resize">resize</button>
+            <button type="button" data-method="center">center</button>
+            <button type="button" data-method="panLeft">panLeft</button>
+            <button type="button" data-method="panRight">panRight</button>
+            <button type="button" data-method="panUp">panUp</button>
+            <button type="button" data-method="panDown">panDown</button>
+            <button type="button" data-method="zoomToAt">zoomToAt</button>
+          </div>
+        </fieldset>
+
+        <div class="status" id="status">zoom: —</div>
+        <div class="log" id="log"></div>
+      </aside>
+
+      <main class="stage">
+        <div class="wrapper-tools">
+          <span>Drag the frame corner to resize the wrapper, then click <strong>resize</strong>.</span>
+        </div>
+        <div class="wrapper-frame" id="wrapper-frame">
+          <div id="wrapper">
+            <div id="content">
+              <div class="grid"></div>
+              pan &amp; zoom me
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/lib/dom-pan-zoom.umd.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

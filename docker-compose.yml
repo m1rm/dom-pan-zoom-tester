@@ -1,0 +1,8 @@
+services:
+  tester:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ../dom-pan-zoom/dist:/dom-pan-zoom/dist:ro
