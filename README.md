@@ -2,6 +2,7 @@
 
 Minimal playground to try [dom-pan-zoom](https://github.com/stephanwagner/dom-pan-zoom) options and API methods from a library user's perspective.
 
+![dom-pan-zoom-tester UI](domPanZoomTester.png)
 ## Prerequisites
 
 Build dom-pan-zoom first (the tester mounts its `dist/` folder):
