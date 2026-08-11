@@ -96,7 +96,43 @@
           </div>
         </fieldset>
 
-        <div class="status" id="status">zoom: —</div>
+        <div class="status" id="status">
+          <div class="status-row">
+            <span class="status-label">zoom</span>
+            <span class="status-value" id="status-zoom">—</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">position left/right</span>
+            <span class="status-value" id="status-pan-x">—</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">position up/down</span>
+            <span class="status-value" id="status-pan-y">—</span>
+          </div>
+          <div class="status-hint" id="status-bounds-hint"></div>
+          <div class="status-grid" aria-label="Remaining pan room">
+            <div class="status-cell">
+              <span class="status-label">can pan left</span>
+              <span class="status-value" id="status-room-left">—</span>
+            </div>
+            <div class="status-cell">
+              <span class="status-label">can pan right</span>
+              <span class="status-value" id="status-room-right">—</span>
+            </div>
+            <div class="status-cell">
+              <span class="status-label">can pan up</span>
+              <span class="status-value" id="status-room-up">—</span>
+            </div>
+            <div class="status-cell">
+              <span class="status-label">can pan down</span>
+              <span class="status-value" id="status-room-down">—</span>
+            </div>
+          </div>
+          <div class="status-row">
+            <span class="status-label">matrix x / y</span>
+            <span class="status-value" id="status-matrix">—</span>
+          </div>
+        </div>
         <div class="log" id="log"></div>
       </aside>
 
