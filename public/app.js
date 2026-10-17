@@ -127,11 +127,24 @@ function getPanRoom(inst) {
   };
 }
 
+/** Effective zoom limits; notes when bounds raised min above the minZoom option. */
+function formatZoomLimits(inst) {
+  if (typeof inst.getMinZoom !== 'function') {
+    return 'n/a (library build has no getMinZoom)';
+  }
+
+  const min = inst.getMinZoom();
+  const max = inst.getMaxZoom();
+  const raised = min > inst.options.minZoom ? ` (bounds; option ${inst.options.minZoom})` : '';
+  return `${min.toFixed(3)}${raised} / ${max.toFixed(3)}`;
+}
+
 function updateStatus() {
   const hintEl = document.getElementById('status-bounds-hint');
 
   if (!instance) {
     document.getElementById('status-zoom').textContent = '—';
+    document.getElementById('status-zoom-limits').textContent = '—';
     document.getElementById('status-pan-x').textContent = '—';
     document.getElementById('status-pan-y').textContent = '—';
     document.getElementById('status-matrix').textContent = 'No instance — click Apply options';
@@ -147,6 +160,7 @@ function updateStatus() {
   const room = getPanRoom(instance);
 
   document.getElementById('status-zoom').textContent = instance.getZoom().toFixed(3);
+  document.getElementById('status-zoom-limits').textContent = formatZoomLimits(instance);
   document.getElementById('status-pan-x').textContent = `${pan.x.toFixed(1)}%`;
   document.getElementById('status-pan-y').textContent = `${pan.y.toFixed(1)}%`;
   document.getElementById('status-matrix').textContent =
